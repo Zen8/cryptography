@@ -1,4 +1,4 @@
-# Cryptography I
+# Cryptography
 
 # Week 1
 # Question 1
@@ -36,7 +36,6 @@ def main():
 	# cyphertext target (10)
 	cypherTexts.append("32510ba9babebbbefd001547a810e67149caee11d945cd7fc81a05e9f85aac650e9052ba6a8cd8257bf14d13e6f0a803b54fde9e77472dbff89d71b57bddef121336cb85ccb8f3315f4b52e301d16e9f52f904")
 	
-	
 	# convert all to ASCII
 	cypherTextsDecoded = map(methodcaller("decode", "hex"), cypherTexts)
 
@@ -64,7 +63,6 @@ def main():
     		if(isreadable(cribDraggedText)):
 				printCodePos(i, cribDraggedText, textLength, '.')
     		
-    
     	print "\n\nGuess key (when the crib starts lining up):"
     	key = strxor(cypherTextsDecoded[xorTextNum1], crib)
     	print "key: %s"%key.encode('hex')
@@ -73,10 +71,6 @@ def main():
     	for j, cypher in enumerate(cypherTextsDecoded) :
     		print "[%d] %s" % (j, strxor(cypher, key))
 
-
-
-	
-	
 def strxor(a, b):     # xor two strings of different lengths
     if len(a) > len(b):
         return "".join([chr(ord(x) ^ ord(y)) for (x, y) in zip(a[:len(b)], b)])
@@ -92,13 +86,11 @@ def printCodePos(i, code, maxLen, filler): # output the guess in place of the me
 	postfix = filler*(maxLen-i-ln)
 	print("%s%s%s" % (prefix,code,postfix))
     	
-
 main()
 	
 ## Output
 # The secret message is: When using a stream cipher, never use the key more than once
 # ..................................................................................C
-
 
 # Guess key (when the crib starts lining up):
 # key: 66396e89c9dbd8cc9874352acd6395102eafce78aa7fed28a07f6bc98d29c50b69b0339a19f8aa401a9c6d708f80c066c763fef0123148cdd8e802d05ba98777335daefcecd59c433a6b268b60bf4ef03c9a611098bb3e9a3161edc7b804a33522cfd202d2c68c57376edba8c2ca50027c61246ce2a12b0c4502175010c0a1ba4625786d911100797d8a47e98b0204c4ef06c867a950f11ac989dea88fd1dbf16748749ed4c6f45b384c9d96c4
